@@ -93,12 +93,6 @@ module.exports = function parseOptionsFromUrl(
     shallow: getBoolean(query, 'shallow', false),
     sourceMapUrl: url.format({
       ...parsedURL,
-      // The Chrome Debugger loads bundles via Blob urls, whose
-      // protocol is blob:http. This breaks loading source maps through
-      // protocol-relative URLs, which is why we must force the HTTP protocol
-      // when loading the bundle for either Android or iOS.
-      protocol:
-        platform != null && platform.match(/^(android|ios)$/) ? 'http' : '',
       pathname: pathname.replace(/\.(bundle|delta)$/, '.map'),
     }),
     sourceUrl: requestUrl,

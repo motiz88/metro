@@ -38,6 +38,7 @@ import type {
 } from 'metro-core/src/Logger';
 
 const {getAsset} = require('./Assets');
+
 const baseBytecodeBundle = require('./DeltaBundler/Serializers/baseBytecodeBundle');
 const baseJSBundle = require('./DeltaBundler/Serializers/baseJSBundle');
 const getAllFiles = require('./DeltaBundler/Serializers/getAllFiles');
@@ -61,6 +62,7 @@ const MultipartResponse = require('./Server/MultipartResponse');
 const symbolicate = require('./Server/symbolicate');
 const {codeFrameColumns} = require('@babel/code-frame');
 const debug = require('debug')('Metro:Server');
+const { actualRequestUrl, getHost, getProto } = require('actual-request-url');
 const fs = require('graceful-fs');
 const {
   Logger,
@@ -451,19 +453,26 @@ class Server {
     res: ServerResponse,
     next: (?Error) => mixed,
   ) {
-    const originalUrl = req.url;
-    req.url = this._config.server.rewriteRequestUrl(req.url);
+    const rawReqUrl = req.url;
+    const urlBeforeRewriting = actualRequestUrl(req)?.toString() ?? rawReqUrl;
+    req.url = this._config.server.rewriteRequestUrl(urlBeforeRewriting);
 
     const urlObj = url.parse(req.url, true);
-    const {host} = req.headers;
+    const host = getHost(req);
+    const protocol = getProto(req);
     debug(
       `Handling request: ${host ? 'http://' + host : ''}${req.url}` +
-        (originalUrl !== req.url ? ` (rewritten from ${originalUrl})` : ''),
+        (urlBeforeRewriting !== req.url
+          ? ` (rewritten from ${urlBeforeRewriting})`
+          : '') +
+        (rawReqUrl !== urlBeforeRewriting
+          ? ` (proxied from ${rawReqUrl})`
+          : ''),
     );
     const formattedUrl = url.format({
       ...urlObj,
       host,
-      protocol: 'http',
+      protocol,
     });
     const pathname = urlObj.pathname || '';
     if (pathname.endsWith('.bundle')) {

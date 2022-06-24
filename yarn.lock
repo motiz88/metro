@@ -1497,6 +1497,11 @@ acorn@^8.5.0, acorn@^8.7.1:
   resolved "https://registry.yarnpkg.com/acorn/-/acorn-8.7.1.tgz#0197122c843d1bf6d0a5e83220a788f278f63c30"
   integrity sha512-Xx54uLJQZ19lKygFXOWsscKUbsBZW0CPykPhVQdhIeIwrbPmJzqeASDInc8nKBnp/JT6igTs82qPXz069H8I/A==
 
+actual-request-url@^1.0.3:
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/actual-request-url/-/actual-request-url-1.0.3.tgz#d431426d9aa94fe09ad11c66f4bdd316c82136ca"
+  integrity sha512-etSLMk/Foe+aZ8XEusY/hq075Nxs60PRVFxzsrvS2O0llCdpFddv3622hKvmreicQN4SpGiyBaoC/7APrDXohg==
+
 add-stream@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/add-stream/-/add-stream-1.0.0.tgz#6a7990437ca736d5e1288db92bd3266d5f5cb2aa"
