@@ -1,0 +1,56 @@
+{
+  "react-native-rntester": {
+    "repo": "facebook/react-native",
+    "tag": "v0.83.1",
+    "entryPoint": "packages/rn-tester/js/RNTesterApp.ios.js",
+    "metroConfig": "packages/rn-tester/metro.config.js",
+    "installCmd": "yarn install --frozen-lockfile",
+    "approxFiles": 2500,
+    "description": "Meta's RN test app exercising all APIs, Flow-typed"
+  },
+  "bluesky": {
+    "repo": "bluesky-social/social-app",
+    "tag": "1.121.0",
+    "entryPoint": "index.js",
+    "metroConfig": "metro.config.js",
+    "installCmd": "yarn install --frozen-lockfile",
+    "approxFiles": 1600,
+    "description": "Bluesky social app, TS, Expo+Metro, custom resolver, Sentry"
+  },
+  "expensify": {
+    "repo": "Expensify/App",
+    "tag": "9.3.59-4",
+    "entryPoint": "index.js",
+    "metroConfig": "metro.config.js",
+    "installCmd": "yarn install --frozen-lockfile",
+    "approxFiles": 4800,
+    "description": "Largest OSS RN app, ~4800 TS files, Expo+Sentry+Reanimated"
+  },
+  "mattermost": {
+    "repo": "mattermost/mattermost-mobile",
+    "tag": "v2.39.0",
+    "entryPoint": "index.ts",
+    "metroConfig": "metro.config.js",
+    "installCmd": "npm ci",
+    "approxFiles": 1000,
+    "description": "Enterprise chat, clean TS, near-vanilla Metro config"
+  },
+  "artsy-eigen": {
+    "repo": "artsy/eigen",
+    "tag": "v9.6.0",
+    "entryPoint": "index.js",
+    "metroConfig": "metro.config.js",
+    "installCmd": "yarn install",
+    "approxFiles": 2500,
+    "description": "Art marketplace, TS, Sentry+cache+inline requires, 27k commits"
+  },
+  "rainbow-wallet": {
+    "repo": "rainbow-me/rainbow",
+    "tag": "v2.0.26",
+    "entryPoint": "index.js",
+    "metroConfig": "metro.config.js",
+    "installCmd": "yarn install",
+    "approxFiles": 2000,
+    "description": "DeFi wallet, TS, 5-level custom resolver fallback, blocklist"
+  }
+}

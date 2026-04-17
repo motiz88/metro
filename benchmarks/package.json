@@ -1,0 +1,15 @@
+{
+  "name": "@metro/benchmarks",
+  "version": "0.0.0",
+  "private": true,
+  "dependencies": {
+    "metro": "*",
+    "metro-config": "*",
+    "metro-runtime": "*"
+  },
+  "devDependencies": {
+    "autocannon": "^7.15.0",
+    "ws": "^8.18.0",
+    "yargs": "^17.7.2"
+  }
+}
